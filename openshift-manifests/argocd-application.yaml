@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bluegreen
+spec:
+  source:
+    path: openshift-manifests/bluegreen-php
+    repoURL: https://github.com/atiouajni/bluegreen.git
+    targetRevision: HEAD
+  destination:
+    namespace: bluegreen
+    server: https://kubernetes.default.svc
+  ignoreDifferences:
+  - group: apps.openshift.io
+    jsonPointers:
+    - /metadata/generation
+    - /spec/template/spec/containers
+    kind: DeploymentConfig
+  - jsonPointers:
+    - /metadata/labels["app.kubernetes.io/instance"]
+    kind: Service
+  - group: build.openshift.io
+    jsonPointers:
+    - /metadata/labels["app.kubernetes.io/instance"]
+    - /spec/triggers
+    kind: BuildConfig
+  - group: image.openshift.io
+    jsonPointers:
+    - /metadata/labels["app.kubernetes.io/instance"]
+    kind: ImageStream
+  - group: route.openshift.io
+    jsonPointers:
+    - /metadata/labels["app.kubernetes.io/instance"]
+    kind: Route
+  project: bluegreen
+  syncPolicy:
+    automated:
+      prune: true
