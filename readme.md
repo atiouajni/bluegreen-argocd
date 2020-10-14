@@ -6,7 +6,7 @@ After completing this tutorial you will be able to accomplish the following task
 - Configure Argo CD to watch GIT repositories
 - Automatically apply approved changes to your system (Continuous Delivery)
 
-[![Screenshot of Argo CD homepage](./docs/img/argocd-homepage.png)](./docs/img/argocd-homepage.png) 
+![Screenshot of Bluegreen Application synced](./docs/img/argocd-bluegreen-application-syncok.png)
 
 # Requirements
  - Openshift 4.5+ (Installed and configured)
@@ -92,7 +92,6 @@ oc apply -f openshift-manifests/argocd-application.yaml
 From your browser, you should see a new Application to sync.
 
 ![Screenshot of Bluegreen Application](./docs/img/argocd-bluegreen-application.png) ![Screenshot of Bluegreen Application details](./docs/img/argocd-bluegreen-application-tree.png)
-![Screenshot of Bluegreen Application synced](./docs/img/argocd-bluegreen-application-syncok.png)
 
 # Cleanup
 ```shell
