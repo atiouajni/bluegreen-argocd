@@ -25,7 +25,7 @@ oc new-project argocd
 ```shell
 oc apply -f openshift-manifets/argocd-operator-subscription.yaml
 ```
-**3 - check the operator status **
+**3 - check the operator status**
 ```shell
 oc describe sub argocd-operator
 
@@ -76,7 +76,7 @@ oc get secret argocd-instance-cluster -o jsonpath='{.data.admin\.password}' | ba
 
 **4 - Access the Argo CD web interface**
 ```shell
-#Retieve the route location and check the url from your browser
+#Retrieve the route location and check the url from your browser
 export ARGOCD_URL=$(oc get route argocd-instance-server -o jsonpath='{.spec.host}')
 chrome https://$ARGOCD_URL
 ```
