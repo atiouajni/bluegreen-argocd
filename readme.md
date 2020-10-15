@@ -105,6 +105,7 @@ From your browser, you should see a new Application to sync.
 # Encountered issues
 
 **Issue :**
+
 services "bluegreen" is forbidden: User "system:serviceaccount:argocd:argocd-application-controller" cannot patch resource "services" in API group "" in the namespace "bluegreen"
 
 **Resolution :**
