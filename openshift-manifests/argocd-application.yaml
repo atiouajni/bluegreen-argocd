@@ -32,7 +32,7 @@ spec:
     jsonPointers:
     - /metadata/labels["app.kubernetes.io/instance"]
     kind: Route
-  project: bluegreen
+  project: default
   syncPolicy:
     automated:
       prune: true
