@@ -109,7 +109,7 @@ services "bluegreen" is forbidden: User "system:serviceaccount:argocd:argocd-app
 
 **Resolution :**
 ```shell
-#Allow application controller to patch resources if there are differences exists between the Git CRD and the cluster
+#Allow application controller to patch resources if there are differences between the Git CRD and the cluster
 oc adm policy add-cluster-role-to-user cluster-admin -z argocd-application-controller -n argocd
 ```
 
