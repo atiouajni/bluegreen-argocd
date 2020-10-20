@@ -94,7 +94,11 @@ chrome https://$ARGOCD_URL
 
 
 # Usage
-Once installation is done and you are able to access to Argo CD web interface, you can deploy an Application CRD. For this step, we will use the bluegreen repository as a source.
+## Once the application is deployed
+
+**You can deploy an ArgoCD Application**
+
+ For this step, we will use the bluegreen repository as a source.
 ```shell
 oc apply -f argocd-manifests/argocd-application.yaml
 ```
