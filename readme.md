@@ -60,7 +60,7 @@ cd bluegreen-argocd
 **2 - Instantiating a new Argo CD server instance**
 ```shell
 oc project argocd
-oc apply -f openshift-manifests/argocd-instance.yaml
+oc apply -f argocd-manifests/argocd-instance.yaml
 ```
 
 **3 - Check the status**
@@ -96,7 +96,7 @@ chrome https://$ARGOCD_URL
 # Usage
 Once installation is done and you are able to access to Argo CD web interface, you can deploy an Application CRD. For this step, we will use the bluegreen repository as a source.
 ```shell
-oc apply -f openshift-manifests/argocd-application.yaml
+oc apply -f argocd-manifests/argocd-application.yaml
 ```
 From your browser, you should see a new Application to sync.
 
