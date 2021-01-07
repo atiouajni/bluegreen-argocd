@@ -16,17 +16,24 @@ After completing this tutorial you will be able to accomplish the following task
 
 ## Install Argo CD Operator
 
-**1 - Create a new project**
-```shell
-oc new-project argocd
-````
+**1 - Clone the project**
 
-**2 - Subscribe to the Argo CD Community operator**
 ```shell
 git clone https://github.com/atiouajni/bluegreen-argocd
+cd bluegreen-argocd
+```
+
+**2 - Create a new project**
+```shell
+oc new-project argocd
+```
+
+**3 - Subscribe to the Argo CD Community operator**
+```shell
 oc apply -f openshift-manifests/argocd-operator-subscription.yaml
 ```
-**3 - check the operator status**
+
+**4 - check the operator status**
 ```shell
 oc get sub argocd-operator -o jsonpath={.status.state}
 
@@ -51,20 +58,13 @@ Follow [bluegreen application](https://github.com/atiouajni/bluegreen#installati
 
 ## II - Installing Argo CD Server
 
-**1 - Clone the project**
-
-```shell
-git clone https://github.com/atiouajni/bluegreen-argocd
-cd bluegreen-argocd
-```
-
-**2 - Instantiating a new Argo CD server instance**
+**1 - Instantiating a new Argo CD server instance**
 ```shell
 oc project argocd
 oc apply -f argocd-manifests/argocd-instance.yaml
 ```
 
-**3 - Check the status**
+**2 - Check the status**
 ```shell
 oc describe ArgoCD/argocd-instance
 
@@ -79,12 +79,12 @@ Status:
 
 ```
 
-**4 - Retrieve default admin password**
+**3 - Retrieve default admin password**
 ```shell
 oc get secret argocd-instance-cluster -o jsonpath='{.data.admin\.password}' | base64 -d
 ```
 
-**5 - Access the Argo CD web interface**
+**4 - Access the Argo CD web interface**
 ```shell
 #Retrieve the route location and check the url from your browser
 export ARGOCD_URL=$(oc get route argocd-instance-server -o jsonpath='{.spec.host}')
