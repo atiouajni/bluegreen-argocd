@@ -23,6 +23,7 @@ oc new-project argocd
 
 **2 - Subscribe to the Argo CD Community operator**
 ```shell
+git clone https://github.com/atiouajni/bluegreen-argocd
 oc apply -f openshift-manifests/argocd-operator-subscription.yaml
 ```
 **3 - check the operator status**
