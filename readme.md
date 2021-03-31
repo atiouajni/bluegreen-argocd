@@ -83,7 +83,10 @@ Status:
 ```shell
 oc get secret argocd-instance-cluster -o jsonpath='{.data.admin\.password}' | base64 -d
 ```
-
+**4 - Add cluster-admin role to the serviceaccount argocd-application-controller
+```shell
+oc adm policy add-cluster-role-to-user cluster-admin -z argocd-application-controller -n argocd
+```
 **4 - Access the Argo CD web interface**
 ```shell
 #Retrieve the route location and check the url from your browser
