@@ -35,9 +35,9 @@ oc apply -f openshift-manifests/argocd-operator-subscription.yaml
 
 **4 - check the operator status**
 ```shell
-oc get sub argocd-operator -o jsonpath={.status.state}
+oc get subs argocd-operator -o jsonpath={.status.state}
 
-oc describe sub argocd-operator
+oc describe subs argocd-operator
 
 # In the command output, find the Conditions section:
 Conditions:
